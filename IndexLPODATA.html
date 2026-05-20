@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bespoke Trading - Modern LPO</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --page-width: 210mm; --page-height: 297mm; }
+    @media screen {
+      body { background-color: #f1f5f9; padding: 2rem 1rem; }
+      .a4-page { width: var(--page-width); min-height: var(--page-height); background-color: #ffffff; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); margin: 0 auto; padding: 20mm 15mm; border-radius: 8px; }
+    }
+    @media print {
+      body { background-color: #ffffff; padding: 0; margin: 0; }
+      .a4-page { width: var(--page-width); height: var(--page-height); padding: 15mm 12mm; margin: 0; page-break-after: always; }
+      .no-print { display: none !important; }
+    }
+    .print-table th { background-color: #2c3e8b !important; color: #ffffff !important; }
+    .accent-bar { background-color: #2c3e8b !important; }
+  </style>
+</head>
+<body class="font-sans text-slate-900">
+
+  <!-- Floating Print Button (Automatically hidden on PDF generation & physical print) -->
+  <button onclick="window.print()" class="no-print fixed bottom-6 right-6 bg-blue-900 text-white px-5 py-3 rounded-full shadow-2xl font-bold uppercase text-xs z-50">
+    Print / Save PDF
+  </button>
+
+  <!-- Main Document Container (A4 Printable Canvas) -->
+  <div class="a4-page flex flex-col justify-between">
+    
+    <!-- Top Header Area -->
+    <div>
+      <div class="flex justify-between items-center border-b border-slate-200 pb-5">
+        
+        <!-- Logo Left Section - Directly uses the unaltered corporate image file link with a smaller max-width constraint -->
+        <div class="flex items-center">
+          <img src="https://i.postimg.cc/MZCJwPRr/BP-Logo-B-BAsset-5-4x.png" 
+               onerror="this.src='https://placehold.co/210x87/f0f3ff/2c3e8b?text=BAR+PROS+Logo'" 
+               alt="BAR PROS - Professional Bar Equipment" 
+               class="h-auto max-w-[210px] w-full object-contain"></img>
+        </div>
+
+        <!-- Company Contact Right Section -->
+        <div class="text-right text-[11px] leading-relaxed text-slate-600 max-w-sm">
+          <h2 class="text-sm font-bold text-blue-900 uppercase">Bespoke Trading L.L.C</h2>
+          <p>Warehouse #16, 5th Street, Umm Ramool, Dubai, UAE</p>
+          <p>Tel: +971 4 3414175 | Web: BarPros.com</p>
+          <p>VAT Reg. No.: 100349902500003</p>
+        </div>
+
+      </div>
+
+      <!-- Purchase Order Title Banner -->
+      <div class="mt-6 flex justify-between items-center bg-brand-800 text-white rounded p-3 accent-bar">
+        <h1 class="text-base font-extrabold uppercase tracking-widest pl-2">Local Purchase Order</h1>
+        <div class="text-right pr-2">
+          <span class="text-[10px] uppercase opacity-75 block">Purchase Order No.</span>
+          <span class="text-sm font-bold">&lt;&lt;[LPO ID]&gt;&gt;</span>
+        </div>
+      </div>
+
+      <!-- Vendor / Delivery & Order Details Information Grids -->
+      <div class="grid grid-cols-12 gap-6 mt-6">
+        
+        <!-- Vendor Address Section -->
+        <div class="col-span-7 bg-slate-50 border border-slate-200 rounded p-4 relative overflow-hidden">
+          <h3 class="text-xs font-bold text-blue-900 uppercase mb-2">Vendor Details</h3>
+          <p class="text-xs text-slate-600">TO: &lt;&lt;[Vendor Name]&gt;&gt;</p>
+          <p class="text-xs text-slate-600">ADDRESS: &lt;&lt;[Address]&gt;&gt;</p>
+          <p class="text-xs text-slate-600">ATTN: &lt;&lt;[ATTN]&gt;&gt;</p>
+          <p class="text-xs text-slate-600 opacity-50">Ignore Value: &lt;&lt;[Ignore]&gt;&gt;</p>
+          <p class="text-xs text-red-600 mt-2 font-semibold">Remarks: &lt;&lt;[Remarks]&gt;&gt;</p>
+        </div>
+
+        <!-- Document Details Section -->
+        <div class="col-span-5 bg-slate-50 border border-slate-200 rounded p-4 relative overflow-hidden">
+          <h3 class="text-xs font-bold text-blue-900 uppercase mb-2">PO Details</h3>
+          <p class="text-xs text-slate-600">PO Date: &lt;&lt;[Date]&gt;&gt;</p>
+          <p class="text-xs text-slate-600">Delivery Date: &lt;&lt;[Delivery Date]&gt;&gt;</p>
+          <p class="text-xs text-slate-600">Terms: &lt;&lt;[Terms]&gt;&gt;</p>
+          <p class="text-xs text-slate-600">Arrival Status: &lt;&lt;[Arrival Status]&gt;&gt;</p>
+        </div>
+
+      </div>
+
+      <!-- Line Items Table Section -->
+      <div class="mt-6 border border-slate-200 rounded">
+        <table class="w-full text-left border-collapse print-table">
+          <thead>
+            <tr class="bg-blue-900 text-white text-[11px] font-bold uppercase">
+              <th class="py-3 px-3">Product Code</th>
+              <th class="py-3 px-3">Product Details</th>
+              <th class="py-3 px-3 text-center">Qty</th>
+              <th class="py-3 px-3 text-right">Unit Price</th>
+              <th class="py-3 px-3 text-right">Discount</th>
+              <th class="py-3 px-3 text-right">Amount</th>
+            </tr>
+          </thead>
+          <tbody class="text-xs text-slate-700 divide-y">
+            <!-- AppSheet Loop Template Syntax mapping directly to [Select Product] table -->
+            <tr>
+              <td class="py-3 px-3">&lt;&lt;Start: [Select Product]&gt;&gt;&lt;&lt;[Product Code]&gt;&gt;</td>
+              <td class="py-3 px-3">&lt;&lt;[Product Details]&gt;&gt;</td>
+              <td class="py-3 px-3 text-center">&lt;&lt;[Qty]&gt;&gt;</td>
+              <td class="py-3 px-3 text-right">&lt;&lt;[Unit Price]&gt;&gt;</td>
+              <td class="py-3 px-3 text-right">&lt;&lt;[Discount]&gt;&gt;</td>
+              <td class="py-3 px-3 text-right font-bold">&lt;&lt;[Amount]&gt;&gt; &lt;&lt;[Currency4Prod]&gt;&gt;&lt;&lt;End&gt;&gt;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Summary & Financial Calculation Area -->
+      <div class="mt-6 flex justify-between items-start">
+        
+        <!-- Standard corporate policies left section -->
+        <div class="w-1/2 pr-6 text-[10px] text-slate-400 leading-relaxed">
+          <p class="font-bold text-slate-500 uppercase tracking-widest mb-1">Standard Terms & Conditions</p>
+          <ul class="list-disc pl-4 space-y-1">
+            <li>Delivery must strictly match dates listed on PO metadata.</li>
+            <li>Invoices without our specific matching PO ID will reject automatically.</li>
+            <li>Subject to UAE VAT and Corporate Tax jurisdiction rules.</li>
+          </ul>
+        </div>
+
+        <!-- Totals calculation layout right section -->
+        <div class="w-1/2 max-w-sm">
+          <div class="bg-slate-50 rounded p-3 border border-slate-200 text-xs text-slate-600 space-y-2">
+            
+            <div class="flex justify-between items-center">
+              <span class="font-medium text-slate-500 uppercase">TOTAL:</span>
+              <span class="font-semibold text-slate-900">&lt;&lt;[Total]&gt;&gt; &lt;&lt;[Currency]&gt;&gt;</span>
+            </div>
+            
+            <div class="flex justify-between items-center">
+              <span class="font-medium text-slate-500">DISCOUNT:</span>
+              <span class="font-medium">&lt;&lt;[Discount]&gt;&gt;</span>
+            </div>
+            
+            <div class="flex justify-between items-center pt-2 border-t border-dashed border-slate-200">
+              <span class="font-semibold text-blue-900">NET AMOUNT:</span>
+              <span class="font-bold text-slate-900">&lt;&lt;[Net Amount]&gt;&gt; &lt;&lt;[Currency]&gt;&gt;</span>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <span class="font-medium text-slate-500">VAT Amount:</span>
+              <span class="font-semibold text-slate-900">&lt;&lt;[Vat Amount]&gt;&gt;</span>
+            </div>
+
+            <!-- Grand total emphasized footer -->
+            <div class="flex justify-between items-center pt-2.5 mt-1 border-t-2 border-slate-300 text-sm font-bold bg-brand-50 p-2 rounded">
+              <span class="text-blue-900">GRAND TOTAL:</span>
+              <span class="text-slate-900 text-right">&lt;&lt;[Grand Total]&gt;&gt; &lt;&lt;[Currency]&gt;&gt;</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Authorized Signatures Footer Section -->
+    <div class="border-t border-slate-200 pt-8 mt-12">
+      <div class="grid grid-cols-3 gap-6 text-center text-xs">
+        
+        <!-- Field 1: Prepared By -->
+        <div class="flex flex-col justify-end">
+          <div class="h-10 flex items-center justify-center">
+            <span class="text-xs italic text-slate-400 font-medium font-serif">System Generated</span>
+          </div>
+          <div class="w-full border-t border-slate-300 my-1.5 mx-auto max-w-[180px]"></div>
+          <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Prepared By</span>
+          <span class="text-xs font-bold text-slate-800">&lt;&lt;[Created By]&gt;&gt;</span>
+        </div>
+
+        <!-- Field 2: Authorized By -->
+        <div class="flex flex-col justify-end">
+          <div class="h-10 flex items-center justify-center">
+            <span class="text-xs italic text-slate-400 font-medium font-serif">Signature</span>
+          </div>
+          <div class="w-full border-t border-slate-300 my-1.5 mx-auto max-w-[180px]"></div>
+          <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Authorized By</span>
+          <span class="text-xs font-bold text-slate-800">Ali KP</span>
+        </div>
+
+        <!-- Field 3: Approved By -->
+        <div class="flex flex-col justify-end">
+          <div class="h-10 flex items-center justify-center">
+            <span class="text-xs italic text-slate-400 font-medium font-serif">Signature</span>
+          </div>
+          <div class="w-full border-t border-slate-300 my-1.5 mx-auto max-w-[180px]"></div>
+          <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Approved By</span>
+          <span class="text-xs font-bold text-slate-800">Jona B.Trinidad</span>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Subtitle -->
+      <div class="mt-8 text-center text-[9px] text-slate-400 tracking-wider uppercase flex items-center justify-center gap-2">
+        <span>Bespoke Trading LLC</span>
+        <span class="text-slate-200">|</span>
+        <span>BarPros - Professional Bar Equipment</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
