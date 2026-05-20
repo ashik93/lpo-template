@@ -39,7 +39,7 @@
           <img src="https://i.postimg.cc/MZCJwPRr/BP-Logo-B-BAsset-5-4x.png" 
                onerror="this.src='https://placehold.co/210x87/f0f3ff/2c3e8b?text=BAR+PROS+Logo'" 
                alt="BAR PROS - Professional Bar Equipment" 
-               class="h-auto max-w-[210px] w-full object-contain"></img>
+               class="h-auto max-w-[210px] w-full object-contain" />
         </div>
 
         <!-- Company Contact Right Section -->
@@ -57,7 +57,7 @@
         <h1 class="text-base font-extrabold uppercase tracking-widest pl-2">Local Purchase Order</h1>
         <div class="text-right pr-2">
           <span class="text-[10px] uppercase opacity-75 block">Purchase Order No.</span>
-          <span class="text-sm font-bold">&lt;&lt;[LPO ID]&gt;&gt;</span>
+          <span class="text-sm font-bold"><<[LPO ID]>></span>
         </div>
       </div>
 
@@ -67,20 +67,20 @@
         <!-- Vendor Address Section -->
         <div class="col-span-7 bg-slate-50 border border-slate-200 rounded p-4 relative overflow-hidden">
           <h3 class="text-xs font-bold text-blue-900 uppercase mb-2">Vendor Details</h3>
-          <p class="text-xs text-slate-600">TO: &lt;&lt;[Vendor Name]&gt;&gt;</p>
-          <p class="text-xs text-slate-600">ADDRESS: &lt;&lt;[Address]&gt;&gt;</p>
-          <p class="text-xs text-slate-600">ATTN: &lt;&lt;[ATTN]&gt;&gt;</p>
-          <p class="text-xs text-slate-600 opacity-50">Ignore Value: &lt;&lt;[Ignore]&gt;&gt;</p>
-          <p class="text-xs text-red-600 mt-2 font-semibold">Remarks: &lt;&lt;[Remarks]&gt;&gt;</p>
+          <p class="text-xs text-slate-600">TO: <<[Vendor Name]>></p>
+          <p class="text-xs text-slate-600">ADDRESS: <<[Address]>></p>
+          <p class="text-xs text-slate-600">ATTN: <<[ATTN]>></p>
+          <p class="text-xs text-slate-600 opacity-50">Ignore Value: <<[Ignore]>></p>
+          <p class="text-xs text-red-600 mt-2 font-semibold">Remarks: <<[Remarks]>></p>
         </div>
 
         <!-- Document Details Section -->
         <div class="col-span-5 bg-slate-50 border border-slate-200 rounded p-4 relative overflow-hidden">
           <h3 class="text-xs font-bold text-blue-900 uppercase mb-2">PO Details</h3>
-          <p class="text-xs text-slate-600">PO Date: &lt;&lt;[Date]&gt;&gt;</p>
-          <p class="text-xs text-slate-600">Delivery Date: &lt;&lt;[Delivery Date]&gt;&gt;</p>
-          <p class="text-xs text-slate-600">Terms: &lt;&lt;[Terms]&gt;&gt;</p>
-          <p class="text-xs text-slate-600">Arrival Status: &lt;&lt;[Arrival Status]&gt;&gt;</p>
+          <p class="text-xs text-slate-600">PO Date: <<[Date]>></p>
+          <p class="text-xs text-slate-600">Delivery Date: <<[Delivery Date]>></p>
+          <p class="text-xs text-slate-600">Terms: <<[Terms]>></p>
+          <p class="text-xs text-slate-600">Arrival Status: <<[Arrival Status]>></p>
         </div>
 
       </div>
@@ -101,12 +101,12 @@
           <tbody class="text-xs text-slate-700 divide-y">
             <!-- AppSheet Loop Template Syntax mapping directly to [Select Product] table -->
             <tr>
-              <td class="py-3 px-3">&lt;&lt;Start: [Select Product]&gt;&gt;&lt;&lt;[Product Code]&gt;&gt;</td>
-              <td class="py-3 px-3">&lt;&lt;[Product Details]&gt;&gt;</td>
-              <td class="py-3 px-3 text-center">&lt;&lt;[Qty]&gt;&gt;</td>
-              <td class="py-3 px-3 text-right">&lt;&lt;[Unit Price]&gt;&gt;</td>
-              <td class="py-3 px-3 text-right">&lt;&lt;[Discount]&gt;&gt;</td>
-              <td class="py-3 px-3 text-right font-bold">&lt;&lt;[Amount]&gt;&gt; &lt;&lt;[Currency4Prod]&gt;&gt;&lt;&lt;End&gt;&gt;</td>
+              <td class="py-3 px-3"><<Start: [Select Product]>><<[Product Code]>></td>
+              <td class="py-3 px-3"><<[Product Details]>></td>
+              <td class="py-3 px-3 text-center"><<[Qty]>></td>
+              <td class="py-3 px-3 text-right"><<[Unit Price]>></td>
+              <td class="py-3 px-3 text-right"><<[Discount]>></td>
+              <td class="py-3 px-3 text-right font-bold"><<[Amount]>> <<[Currency4Prod]>><<End>></td>
             </tr>
           </tbody>
         </table>
@@ -131,28 +131,28 @@
             
             <div class="flex justify-between items-center">
               <span class="font-medium text-slate-500 uppercase">TOTAL:</span>
-              <span class="font-semibold text-slate-900">&lt;&lt;[Total]&gt;&gt; &lt;&lt;[Currency]&gt;&gt;</span>
+              <span class="font-semibold text-slate-900"><<[Total]>> <<[Currency]>></span>
             </div>
             
             <div class="flex justify-between items-center">
               <span class="font-medium text-slate-500">DISCOUNT:</span>
-              <span class="font-medium">&lt;&lt;[Discount]&gt;&gt;</span>
+              <span class="font-medium"><<[Discount]>></span>
             </div>
             
             <div class="flex justify-between items-center pt-2 border-t border-dashed border-slate-200">
               <span class="font-semibold text-blue-900">NET AMOUNT:</span>
-              <span class="font-bold text-slate-900">&lt;&lt;[Net Amount]&gt;&gt; &lt;&lt;[Currency]&gt;&gt;</span>
+              <span class="font-bold text-slate-900"><<[Net Amount]>> <<[Currency]>></span>
             </div>
 
             <div class="flex justify-between items-center">
               <span class="font-medium text-slate-500">VAT Amount:</span>
-              <span class="font-semibold text-slate-900">&lt;&lt;[Vat Amount]&gt;&gt;</span>
+              <span class="font-semibold text-slate-900"><<[Vat Amount]>></span>
             </div>
 
             <!-- Grand total emphasized footer -->
             <div class="flex justify-between items-center pt-2.5 mt-1 border-t-2 border-slate-300 text-sm font-bold bg-brand-50 p-2 rounded">
               <span class="text-blue-900">GRAND TOTAL:</span>
-              <span class="text-slate-900 text-right">&lt;&lt;[Grand Total]&gt;&gt; &lt;&lt;[Currency]&gt;&gt;</span>
+              <span class="text-slate-900 text-right"><<[Grand Total]>> <<[Currency]>></span>
             </div>
 
           </div>
@@ -173,7 +173,7 @@
           </div>
           <div class="w-full border-t border-slate-300 my-1.5 mx-auto max-w-[180px]"></div>
           <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Prepared By</span>
-          <span class="text-xs font-bold text-slate-800">&lt;&lt;[Created By]&gt;&gt;</span>
+          <span class="text-xs font-bold text-slate-800"><<[Created By]>></span>
         </div>
 
         <!-- Field 2: Authorized By -->
